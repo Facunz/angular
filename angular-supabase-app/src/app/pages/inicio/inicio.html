@@ -1,0 +1,48 @@
+<div class="inicio-container">
+  <div class="hero-section">
+    <h1>Bienvenido a la App Angular + Supabase</h1>
+    <p>Esta aplicación demuestra el uso de Angular con Supabase y APIs externas</p>
+    <div class="nav-buttons">
+      <a routerLink="/dashboard" class="btn btn-primary">
+        Ir al Dashboard
+      </a>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h2>Características implementadas</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>🅰️ Angular Básico</h3>
+        <p>Componentes, @Input/@Output, bindeo y ruteo</p>
+      </div>
+      <div class="feature-card">
+        <h3>🗄️ Supabase</h3>
+        <p>ABM completo: crear, listar y eliminar tareas</p>
+      </div>
+      <div class="feature-card">
+        <h3>🌐 API Externa</h3>
+        <p>Consumo de JSONPlaceholder para mostrar posts</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="api-section">
+    <h2>Posts desde JSONPlaceholder API</h2>
+    
+    <div *ngIf="loading" class="loading">
+      Cargando posts...
+    </div>
+    
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+    
+    <div *ngIf="!loading && !error" class="posts-container">
+      <app-post-card 
+        *ngFor="let post of posts" 
+        [post]="post">
+      </app-post-card>
+    </div>
+  </div>
+</div>
